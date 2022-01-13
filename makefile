@@ -1,11 +1,21 @@
-start: #Containers start
-	@sudo docker-compose up -d
+docker_php = docker_php-fpm_1
+docker_nginx = docker_nginx_1
+docker_mysql = docker_mysql_1
 
-stop: #Stop
-	@sudo docker-compose stop
+up: #Containers start
+	docker-compose up -d
 
-show_containers:
-	@sudo docker ps
+down: #Stop
+	docker-compose stop
+
+ps:
+	docker ps
 
 connect_php:
-	@sudo docker exec -it
+	docker exec -it $(docker_php) bash
+
+connect_nginx:
+	docker exec -it $(docker_nginx) bash
+
+connect_mysql:
+	docker exec -it $(docker_mysql) bash

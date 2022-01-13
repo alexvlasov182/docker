@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexvlasov
- * Date: 11/01/2022
- * Time: 7:38 PM
- */
-phpinfo();
-
-//echo "Hello php again)))) i snova dratuti";
+  $db = new PDO("mysql:host=mysql;dbname=forge", "root", "123456");
+  echo  "<pre>";
+    foreach ($db->query('SELECT * FROM forge.articles;') as $row) {
+      print_r($row);
+    }
+  echo "</pre>";
